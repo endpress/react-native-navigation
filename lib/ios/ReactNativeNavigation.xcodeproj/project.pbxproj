@@ -671,6 +671,7 @@
 				506A2B1220973DFD00F43A95 /* RNNErrorHandler.h */,
 				506A2B1320973DFD00F43A95 /* RNNErrorHandler.m */,
 				50644A1E20E11A720026709C /* Constants.h */,
+				7BA500741E2544B9001B9E1B /* ReactNativeNavigation.m */,
 				50644A1F20E11A720026709C /* Constants.m */,
 				50706E6B20CE7CA5003345C3 /* UIImage+tint.h */,
 				50706E6C20CE7CA5003345C3 /* UIImage+tint.m */,
@@ -1054,7 +1055,6 @@
 			children = (
 				214545271F4DC7ED006E8DA1 /* Helpers */,
 				7BA500731E2544B9001B9E1B /* ReactNativeNavigation.h */,
-				7BA500741E2544B9001B9E1B /* ReactNativeNavigation.m */,
 				2DCD9193200014A900EDC75D /* RNNBridgeManager.h */,
 				2DCD9194200014A900EDC75D /* RNNBridgeManager.m */,
 				268692801E5054F800E2C612 /* RNNStore.h */,

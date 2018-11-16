@@ -12,7 +12,7 @@ typedef void (^RNNAnimationBlock)(void);
 		nvc.delegate = animationDelegate;
 	} else {
 		nvc.delegate = nil;
-		nvc.interactivePopGestureRecognizer.delegate = nil;
+//		nvc.interactivePopGestureRecognizer.delegate = nil;
 	}
 	
 	[self performAnimationBlock:^{
