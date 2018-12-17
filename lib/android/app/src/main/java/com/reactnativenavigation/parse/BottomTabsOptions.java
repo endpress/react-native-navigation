@@ -46,7 +46,7 @@ public class BottomTabsOptions {
 	public Fraction elevation = new NullFraction();
 	public Text currentTabId = new NullText();
     public Text testId = new NullText();
-    public TitleDisplayMode titleDisplayMode = TitleDisplayMode.UNDEFINED;
+    public TitleDisplayMode titleDisplayMode = TitleDisplayMode.ALWAYS_SHOW;
 
 	void mergeWith(final BottomTabsOptions other) {
 		if (other.currentTabId.hasValue()) currentTabId = other.currentTabId;
