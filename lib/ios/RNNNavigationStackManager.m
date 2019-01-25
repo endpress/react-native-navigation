@@ -12,9 +12,8 @@ typedef void (^RNNAnimationBlock)(void);
 		nvc.delegate = animationDelegate;
 	} else {
 		nvc.delegate = nil;
-//		nvc.interactivePopGestureRecognizer.delegate = nil;
 	}
-	
+
 	[self performAnimationBlock:^{
 		[nvc pushViewController:newTop animated:animated];
 	} completion:completion];
@@ -24,7 +23,7 @@ typedef void (^RNNAnimationBlock)(void);
 	if (!viewController.view.window) {
 		animated = NO;
 	}
-	
+
 	__block UIViewController *poppedVC = nil;
 	[self performAnimationBlock:^{
 		poppedVC = [viewController.navigationController popViewControllerAnimated:animated];
@@ -39,7 +38,7 @@ typedef void (^RNNAnimationBlock)(void);
 
 - (void)popTo:(UIViewController *)viewController animated:(BOOL)animated completion:(RNNPopCompletionBlock)completion rejection:(RNNTransitionRejectionBlock)rejection; {
 	__block NSArray* poppedVCs;
-	
+
 	if ([viewController.navigationController.childViewControllers containsObject:viewController]) {
 		[self performAnimationBlock:^{
 			poppedVCs = [viewController.navigationController popToViewController:viewController animated:animated];
@@ -55,7 +54,7 @@ typedef void (^RNNAnimationBlock)(void);
 
 - (void)popToRoot:(UIViewController*)viewController animated:(BOOL)animated completion:(RNNPopCompletionBlock)completion rejection:(RNNTransitionRejectionBlock)rejection {
 	__block NSArray* poppedVCs;
-	
+
 	[self performAnimationBlock:^{
 		poppedVCs = [viewController.navigationController popToRootViewControllerAnimated:animated];
 	} completion:^{
@@ -63,11 +62,11 @@ typedef void (^RNNAnimationBlock)(void);
 	}];
 }
 
-- (void)setStackRoot:(UIViewController *)newRoot fromViewController:(UIViewController *)fromViewController animated:(BOOL)animated completion:(RNNTransitionCompletionBlock)completion rejection:(RNNTransitionRejectionBlock)rejection {
+- (void)setStackChildren:(NSArray<UIViewController *> *)children fromViewController:(UIViewController *)fromViewController animated:(BOOL)animated completion:(RNNTransitionCompletionBlock)completion rejection:(RNNTransitionRejectionBlock)rejection {
 	UINavigationController* nvc = fromViewController.navigationController;
-	
+
 	[self performAnimationBlock:^{
-		[nvc setViewControllers:@[newRoot] animated:animated];
+		[nvc setViewControllers:children animated:animated];
 	} completion:completion];
 }
 
@@ -80,9 +79,9 @@ typedef void (^RNNAnimationBlock)(void);
 			completion();
 		}
 	}];
-	
+
 	animationBlock();
-	
+
 	[CATransaction commit];
 }
 
